@@ -19,7 +19,7 @@ spec:
         app: cp-resource-management
     spec:
       securityContext:
-        runAsUser: 1000080020
+        runAsUser: 1000
       serviceAccountName: cp-resource-management
       containers:
         - name: cp-resource-management
