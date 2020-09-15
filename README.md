@@ -24,19 +24,19 @@ oc create namespace
 ### Create a CloudGuard token or use an existing one and add to your cluster secrets
 
 ```
-oc create secret generic dome9-creds --from-literal=username=1b089072-78c1-4d5a-b365-456a9a5f16b2 --from-literal=secret=ustwhdqj4h956e577kr9ewy8 --namespace
+oc create secret generic dome9-creds --from-literal=username=<cloudguard_API_key> --from-literal=secret=<cloudguard_secret_key> --namespace <your_namespace>
 ```
 
 ### Create a configmap to hold the clusterID
 
 ```
-oc create configmap cp-resource-management-configmap --from-literal=cluster.id=fc6dfe53-a302-4ca7-9053-276511570e6a --namespace
+oc create configmap cp-resource-management-configmap --from-literal=cluster.id=fc6dfe53-a302-4ca7-9053-276511570e6a --namespace <your_namespace>
 ```
 
 ### Run the following commands
 
 ```
-oc create serviceaccount cp-resource-management --namespace
+oc create serviceaccount cp-resource-management --namespace <your_namespace>
 ```
 ### The cloudguard agent uses the user ID 1000 whereas Openshift scc assign a randown UID from a range which will cause the replicaset to fail to deploy the agent. We need to create a Security Context Constraint or scc for CloudGuard in OpenShift and allow the UID 1000:
 
