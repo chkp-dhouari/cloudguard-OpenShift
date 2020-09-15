@@ -21,7 +21,7 @@ git clone git@github.com:chkp-dhouari/cloudguard-OpenShift.git
 oc create namespace
 ```
 
-## PLEASE REPLACE <your_namespace> with your the namespace name that you created after the --namespace flag!
+## PLEASE REPLACE <your_namespace> with your namespace name that you created after the --namespace flag!
 
 ### Create a CloudGuard token or use an existing one and add to your cluster secrets
 #### You can copy from the onboard page or just copy you cloudguard credentials here again:
