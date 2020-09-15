@@ -7,7 +7,7 @@ install git
 https://git-scm.com/
 
 ```
-git clone git@github.com:chkp-dhouari/cloudguard-openshift-.git
+
 ```
 
 You should have the deployment yaml file named "cp-cloudguard-openshift.yaml" in your dir
