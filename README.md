@@ -93,14 +93,14 @@ oc create serviceaccount cp-resource-management --namespace <your_namespace>
 ### Need to create a new SCC for CloudGuard, you need to be an administrator.
 
 ```
-$ oc create -f uid1000.json --as system:admin
+oc create -f uid1000.json --as system:admin
 securitycontextconstraints "uid1000" created
 
 ```
 ### Set the SCC to be used by the cloudguard service account that we already created 
 
 ```
-$ oc adm policy add-scc-to-user uid1000 -z cp-resource-management --as system:admin
+oc adm policy add-scc-to-user uid1000 -z cp-resource-management --as system:admin
 ```
 
 ### Run the following commands
