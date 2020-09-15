@@ -45,7 +45,7 @@ oc create configmap cp-resource-management-configmap --from-literal=cluster.id=,
 oc create serviceaccount cp-resource-management --namespace <your_namespace>
 ```
 
-### The cloudguard agent uses the user ID 1000 whereas the Openshift security context constraint or scc assign a randown UID from a range which will cause the replicaset to fail to deploy the agent. We need to create a Security Context Constraint or scc for CloudGuard in OpenShift and allow the UID 1000:
+### The cloudguard agent uses the user ID 1000 whereas the Openshift security context constraint or scc assign a randown UID from internal number ranges which will cause the replicaset to fail to deploy the agent. We need to create a Security Context Constraint or scc for CloudGuard in OpenShift and allow the UID 1000:
 
 ## To allow cloudguard to use UID 1000, please create a file uid1000.json that you can download with git clone containing:
 
