@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cp-resource-management
+  labels:
+    app: cp-resource-management
+spec:
+  selector:
+    matchLabels:
+      app: cp-resource-management
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        # seccomp.security.alpha.kubernetes.io/pod: docker/default
+        # If you have AppArmor enabled on your cluster, uncomment the following line
+        # container.apparmor.security.beta.kubernetes.io/cp-resource-management: runtime/default
+      labels:
+        app: cp-resource-management
+    spec:
+      securityContext:
+        runAsUser: 1000080020
+      serviceAccountName: cp-resource-management
+      containers:
+        - name: cp-resource-management
+          image: quay.io/checkpoint/cp-resource-management:v1.1.0
+          volumeMounts:
+            - name: secret-volume
+              mountPath: /etc/secret-volume
+          command: ["/bin/sh"]
+          args: ["-c", "/inventory"]
+          securityContext:
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+          env:
+            - name: DOME9_URL
+              value: "https://api-cpx.dome9.com"
+            - name: CP_KUBERNETES_CLUSTER_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: cp-resource-management-configmap
+                  key: cluster.id
+      volumes:
+        - name: secret-volume
+          secret:
+            secretName: dome9-creds
