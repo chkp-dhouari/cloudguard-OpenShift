@@ -44,6 +44,8 @@ oc create serviceaccount cp-resource-management --namespace <your_namespace>
 
 ## To allow cloudguard to use UID 1000, please create a file uid1000.json containing:
 
+#### NOTE:with OpenShift 4.x and above the apiVersion has changed to security.openshift.io/v1. Please do update that if you are running v4.x and above
+
 ```
 {
     "apiVersion": "v1",
