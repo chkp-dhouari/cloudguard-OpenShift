@@ -123,4 +123,4 @@ then next and wait for agent to be synced
 # Start running compliance on your OC cluster with CloudGuard
 
   
-![header image](cg.png)  
+![header image](cg.jpeg)  
