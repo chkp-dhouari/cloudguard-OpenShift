@@ -1,6 +1,6 @@
 # Onboarding an Openshift cluster to Check Point Cloudguard CSPM (ex.Dome9)
 
-![header image](opens.png)                          ![header image](cpss.png) 
+![header image](opens.png)                            ![header image](cpss.png) 
 
 
 Please go to the CloudGuard asset onboarding page in cloudguard then pick Kubernetes...enter the cluster name, namespace name and your cloudguard API token then click next && pick an organization then next && then STOP... 
