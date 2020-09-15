@@ -108,7 +108,7 @@ oc create clusterrolebinding cp-resource-management --clusterrole=cp-resource-ma
 ### Deploy CloudGuard agent
 
 ```
-oc create -f cp-cloudguard-openshift.yaml
+oc create -f cp-cloudguard-openshift.yaml --namespace=<your_namespace>
 ```
 
 then next and wait for agent to be synced
