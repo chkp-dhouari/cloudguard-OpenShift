@@ -1,10 +1,12 @@
 # Onboarding an Openshift cluster to Check Point Cloudguard CSPM (ex.Dome9)
 
 
-Please go to the CloudGuard asset onboarding page in cloudguard the pick Kubernetes. enter the cluster name, namespace name and your cloudguard API token then click next pick an organization then next the STOP Enter the command below in your openshift cluster:
+Please go to the CloudGuard asset onboarding page in cloudguard then pick Kubernetes...enter the cluster name, namespace name and your cloudguard API token then click next && pick an organization then next && then STOP... 
+
+#### Enter the command below in your openshift cluster:
 
 
-> IMPORTANT: Please do NOT use the Helm chart or manual option kubectl comnands as this is for OpenShift which uses oc command to manasge the K8s cluster. Openshift implementation has different values with regards to deployments config paramaters vs traditional K8s. The deployment file and some other commands had to be customized for OpenShift
+> IMPORTANT: Please do NOT use the Helm charts or manual option kubectl comnands as this is for OpenShift which uses oc command to manasge the K8s cluster. Openshift implementation has different values with regards to deployments config paramaters vs traditional K8s. The deployment file and some other commands had to be customized for OpenShift
 
 #### Please install Git to clone the repo and download the deployment config yaml file for OpenShift
 
@@ -19,7 +21,7 @@ git clone git@github.com:chkp-dhouari/cloudguard-OpenShift.git
 oc create namespace
 ```
 
-## PLEASE REPLACE with your the namespace name you created!
+## PLEASE REPLACE <your_namespace> with your the namespace name that you created after the --namespace flag!
 
 ### Create a CloudGuard token or use an existing one and add to your cluster secrets
 #### You can copy from the onboard page or just copy you cloudguard credentials here again:
@@ -40,7 +42,8 @@ oc create configmap cp-resource-management-configmap --from-literal=cluster.id=,
 ```
 oc create serviceaccount cp-resource-management --namespace <your_namespace>
 ```
-### The cloudguard agent uses the user ID 1000 whereas Openshift scc assign a randown UID from a range which will cause the replicaset to fail to deploy the agent. We need to create a Security Context Constraint or scc for CloudGuard in OpenShift and allow the UID 1000:
+
+### The cloudguard agent uses the user ID 1000 whereas the Openshift security context constraint or scc assign a randown UID from a range which will cause the replicaset to fail to deploy the agent. We need to create a Security Context Constraint or scc for CloudGuard in OpenShift and allow the UID 1000:
 
 ## To allow cloudguard to use UID 1000, please create a file uid1000.json containing:
 
