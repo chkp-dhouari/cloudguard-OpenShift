@@ -1,12 +1,18 @@
-# Onboarding an Openshift cluster to Cloudguard CSPM (Dome9)
+# Onboarding an Openshift cluster to Check Point Cloudguard CSPM (ex.Dome9)
 
 
-please go to the asset onboard page in cloudguard the pick Kubernetes. enter the cluster name, namespace name and your cloudguard API token then click next pick an organization then next the STOP Enter the command below in your openshift cluster:
+Please go to the CloudGuard asset onboarding page in cloudguard the pick Kubernetes. enter the cluster name, namespace name and your cloudguard API token then click next pick an organization then next the STOP Enter the command below in your openshift cluster:
 
 install git
+https://git-scm.com/
+
+```
 git clone git@github.com:chkp-dhouari/cloudguard-openshift-.git
+```
 
 You should have the deployment yaml file named "cp-cloudguard-openshift.yaml" in your dir
+
+> IMPORTANT: Please do not use the Helm chart or manual option kubectl comnands as this is for OpenShift which uses oc command to manasge the K8s cluster. Openshift implementation has different values with regards to deployments config paramaters vs traditional K8s. The deployment file and some other commands had to be customized for OpenShift
 
 ### Run the following command (only for new namespace)
 
