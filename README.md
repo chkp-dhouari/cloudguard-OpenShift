@@ -22,15 +22,17 @@ oc create namespace
 ## PLEASE REPLACE with your the namespace name you created!
 
 ### Create a CloudGuard token or use an existing one and add to your cluster secrets
+#### You can copy from the onboard page or just copy you cloudguard credentials here again:
 
 ```
 oc create secret generic dome9-creds --from-literal=username=<cloudguard_API_key> --from-literal=secret=<cloudguard_secret_key> --namespace <your_namespace>
 ```
 
 ### Create a configmap to hold the clusterID
+#### please copy your cluster id from the the kubectl equivalent command that is automatically generated in the onboarding page
 
 ```
-oc create configmap cp-resource-management-configmap --from-literal=cluster.id=fc6dfe53-a302-4ca7-9053-276511570e6a --namespace <your_namespace>
+oc create configmap cp-resource-management-configmap --from-literal=cluster.id=,your_cluster_id> --namespace <your_namespace>
 ```
 
 ### Run the following commands
