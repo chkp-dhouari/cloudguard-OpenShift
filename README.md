@@ -10,7 +10,7 @@ Please go to the CloudGuard asset onboarding page in cloudguard then pick Kubern
 
 > IMPORTANT: Please do NOT use the Helm charts or manual option kubectl comnands as this is for OpenShift which uses oc command to manasge the K8s cluster. Openshift implementation has different values with regards to deployments config paramaters vs traditional K8s. The deployment file and some other commands had to be customized for OpenShift
 
-#### Please install Git to clone the repo and download the deployment config yaml file for OpenShift
+#### Please install Git to clone the repo and download the deployment config yaml file and the UID1000.json file for OpenShift
 
 ### Run the following command:
 ```
