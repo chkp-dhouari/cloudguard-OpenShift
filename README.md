@@ -120,4 +120,7 @@ oc create -f cp-cloudguard-openshift.yaml --namespace=<your_namespace>
 
 then next and wait for agent to be synced
 
-Start running compliance on your OC cluster
+# Start running compliance on your OC cluster with CloudGuard
+
+  
+![header image](cg.png)  
